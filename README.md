@@ -1,1 +1,1 @@
-# e3-smb100a
+# Rudimentary Epics support for Rhode&Schwarz SMB100A signal generator.
