@@ -1,0 +1,22 @@
+# smb100a.proto for DMB100A Signal Generator
+Terminator = LF;
+   
+get_id {
+   out "*idn?";
+   in "%#s";
+}
+
+get_freq {
+   out "freq?"
+   in "%f"
+}
+
+get_outp {
+   out "outp?"
+   in "%d"
+}
+
+get_out_pwr {
+   out "pow?"
+   in "%f"
+}

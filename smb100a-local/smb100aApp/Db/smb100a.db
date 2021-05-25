@@ -1,0 +1,32 @@
+record(waveform, "$(P):$(DEV)-Id") {
+   field (DESC, "Generator's id")
+   field (DTYP, "stream")
+   field (INP, "@smb100a.proto get_id $(PORT)")
+   field (FTVL, "CHAR")
+   field (NELM, "100")
+   field (PINI, "YES")
+}
+
+record(ai, "$(P):$(DEV)-Freq:sRdV") {
+   field (DESC, "Frequency")
+   field (EGU, "MHz")
+   field (LINR, SLOPE)
+   field (ESLO, "1e-6"
+   field (DTYP, "stream")
+#   field (LOPR, "0")
+#   field (HOPR, "1.0")
+#   field (PREC, "6")
+   field (INP, "@smb100a.proto get_freq $(PORT)")
+#   field (SCAN, "$(SCAN) second")
+}
+
+record(ai, "$(P):$(DEV)-Pwr:sRdV") {
+   field (DESC, "Output power")
+   field (EGU, "dBm")
+   field (DTYP, "stream")
+#   field (LOPR, "0")
+#   field (HOPR, "1.0")
+#   field (PREC, "2")
+   field (INP, "@smb100a.proto get_out_pwr $(PORT)")
+#   field (SCAN, "$(SCAN) second")
+}
