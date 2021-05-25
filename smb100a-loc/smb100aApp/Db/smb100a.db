@@ -1,0 +1,59 @@
+record(waveform, "$(P):$(DEV)-Id") {
+   field (DESC, "Generator's id")
+   field (DTYP, "stream")
+   field (INP, "@smb100a.proto get_id $(PORT)")
+   field (FTVL, "CHAR")
+   field (NELM, "100")
+   field (PINI, "YES")
+}
+
+record(lsi, "$(P):$(DEV)-sId") {
+   field (DESC, "Generator's id")
+   field (DTYP, "stream")
+   field (INP, "@smb100a.proto get_id $(PORT)")
+   field (SIZV, "100")
+   field (PINI, "YES")
+}
+
+record(stringin, "$(P):$(DEV)-IPaddr:sRdV") {
+   field (DESC, "Generator's IP address")
+   field (DTYP, "stream")
+   field (INP, "@smb100a.proto get_ipaddr $(PORT)")
+   field (PINI, "YES")
+}
+
+record(ai, "$(P):$(DEV)-Freq:sRdV") {
+   field (DESC, "Frequency")
+   field (EGU, "MHz")
+   field (LINR, LINEAR)
+   field (ASLO, "1e-6")
+   field (DTYP, "stream")
+   field (LOPR, "0.1")
+   field (HOPR, "12.75e3")
+   field (PREC, "6")
+   field (INP, "@smb100a.proto get_freq $(PORT)")
+   field (PINI, "YES")
+#   field (SCAN, "1 second")
+}
+
+record(ai, "$(P):$(DEV)-Pwr:sRdV") {
+   field (DESC, "Output power")
+   field (EGU, "dBm")
+   field (DTYP, "stream")
+   field (LOPR, "-30")
+   field (HOPR, "27.0")
+   field (PREC, "2")
+   field (INP, "@smb100a.proto get_out_pwr $(PORT)")
+   field (PINI, "YES")
+#   field (SCAN, "1 second")
+}
+
+record(bi, "$(P):$(DEV)-OUTP:sOn") {
+   field (DESC, "Output Enabled")
+   field (DTYP, "stream")
+   field (INP, "@smb100a.proto get_outp $(PORT)")
+   field (PINI, "YES")
+   field (ZNAM, "Off")
+   field (ONAM, "On")
+   field (ZSV, "MAJOR")
+}

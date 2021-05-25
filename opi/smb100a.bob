@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>SMB100A</name>
+  <macros>
+    <DEV>LO</DEV>
+    <P>LLRF-1</P>
+  </macros>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>SMB100A Signal Generator</text>
+    <x use_class="true">20</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height use_class="true">50</height>
+    <font use_class="true">
+      <font name="Header 1" family="Source Sans Pro" style="BOLD_ITALIC" size="36.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="HEADER-TEXT" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <horizontal_alignment use_class="true">0</horizontal_alignment>
+    <vertical_alignment use_class="true">1</vertical_alignment>
+    <wrap_words use_class="true">false</wrap_words>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Id:</text>
+    <x>20</x>
+    <y>570</y>
+    <width>40</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P):$(DEV)-Id</pv_name>
+    <x>70</x>
+    <y>570</y>
+    <width>510</width>
+    <format>6</format>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <class>COMMENT</class>
+    <text>Output:</text>
+    <x>30</x>
+    <y>130</y>
+    <width>140</width>
+    <font>
+      <font name="Comment" family="Source Sans Pro" style="ITALIC" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <class>COMMENT</class>
+    <text>Frequency:</text>
+    <x>30</x>
+    <y>160</y>
+    <width>140</width>
+    <font>
+      <font name="Comment" family="Source Sans Pro" style="ITALIC" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <class>COMMENT</class>
+    <text>Output Power:</text>
+    <x>30</x>
+    <y>190</y>
+    <width>140</width>
+    <font>
+      <font name="Comment" family="Source Sans Pro" style="ITALIC" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P):$(DEV)-Freq:sRdV</pv_name>
+    <x>150</x>
+    <y>160</y>
+    <width>120</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(P):$(DEV)-Pwr:sRdV</pv_name>
+    <x>150</x>
+    <y>190</y>
+    <width>120</width>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>$(P):$(DEV)-OUTP:sOn</pv_name>
+    <x>150</x>
+    <y>130</y>
+    <width>120</width>
+    <square>true</square>
+    <labels_from_pv>true</labels_from_pv>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>$(P)-$(DEV)</text>
+    <x>30</x>
+    <y>70</y>
+    <width>410</width>
+    <height>50</height>
+    <font>
+      <font name="Header 1" family="Source Sans Pro" style="BOLD_ITALIC" size="36.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>IP Address:</text>
+    <x>30</x>
+    <y>50</y>
+    <width>90</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_3</name>
+    <pv_name>$(P):$(DEV)-IPaddr:sRdV</pv_name>
+    <x>150</x>
+    <y>50</y>
+    <width>120</width>
+    <format>6</format>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry</name>
+    <pv_name>$(P):$(DEV)-Freq:cSetV</pv_name>
+    <x>280</x>
+    <y>160</y>
+    <width>70</width>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_1</name>
+    <pv_name>$(P):$(DEV)-Pwr:cSetV</pv_name>
+    <x>280</x>
+    <y>190</y>
+    <width>70</width>
+    <show_units>false</show_units>
+  </widget>
+</display>
