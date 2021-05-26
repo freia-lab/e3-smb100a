@@ -3,7 +3,7 @@ EPICS_MODULE_NAME:=smb100a
 
 EPICS_MODULE_TAG:=master
 #
-E3_MODULE_VERSION:=develop
+E3_MODULE_VERSION:=0.1.0
 
 # DEPENDENT MODULE VERSION
 # For Example, 
@@ -27,7 +27,6 @@ STREAMDEVICE_DEP_VERSION:=2.8.10
 E3_MODULE_NAME:=$(EPICS_MODULE_NAME)
 E3_MODULE_SRC_PATH:=smb100a-loc
 E3_MODULE_MAKEFILE:=$(EPICS_MODULE_NAME).Makefile
-
 
 -include $(TOP)/configure/CONFIG_OPTIONS
 # The definitions shown below can also be placed in an untracked CONFIG_MODULE.local
