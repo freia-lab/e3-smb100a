@@ -3,6 +3,7 @@ require smb100a,develop
  
 #Specify the TCP endpoint and give your 'bus' an arbitrary name eg. "asynstream1".
 drvAsynIPPortConfigure("PORT1","192.168.1.181:5025",0,0,0)
+drvAsynIPPortConfigure("PORT2","192.168.1.182:5025",0,0,0)
 
 #drvAsynSerialPortConfigure ("asynport2","/dev/ttyS0")
 #asynSetOption ("asynport2", 0, "baud", "9600")
@@ -16,7 +17,8 @@ drvAsynIPPortConfigure("PORT1","192.168.1.181:5025",0,0,0)
 epicsEnvSet("STREAM_PROTOCOL_PATH","$(smb100a_DB)")
 
 #Load your database defining the EPICS records
-dbLoadRecords("smb100a.db", "PORT=PORT1,P=LLRF-1,DEV=LO")
+dbLoadRecords("smb100a.db", "PORT=PORT1,P=LLRF-1,DEV=Ref")
+dbLoadRecords("smb100a.db", "PORT=PORT2,P=LLRF-2,DEV=Ref")
 
 iocInit()
 
