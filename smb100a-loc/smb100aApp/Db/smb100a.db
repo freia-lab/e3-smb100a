@@ -30,10 +30,10 @@ record(ai, "$(P):$(DEV)-Freq:sRdV") {
    field (DTYP, "stream")
    field (LOPR, "0.1")
    field (HOPR, "12.75e3")
-   field (PREC, "6")
+   field (PREC, "9")
    field (INP, "@smb100a.proto get_freq $(PORT)")
    field (PINI, "YES")
-#   field (SCAN, "1 second")
+   field (SCAN, "1 second")
 }
 
 record(ai, "$(P):$(DEV)-Pwr:sRdV") {
@@ -45,7 +45,7 @@ record(ai, "$(P):$(DEV)-Pwr:sRdV") {
    field (PREC, "2")
    field (INP, "@smb100a.proto get_out_pwr $(PORT)")
    field (PINI, "YES")
-#   field (SCAN, "1 second")
+   field (SCAN, "1 second")
 }
 
 record(bi, "$(P):$(DEV)-OUTP:sOn") {
@@ -56,4 +56,60 @@ record(bi, "$(P):$(DEV)-OUTP:sOn") {
    field (ZNAM, "Off")
    field (ONAM, "On")
    field (ZSV, "MAJOR")
+   field (SCAN, "1 second")
+}
+
+#############################################
+# Commands and settings
+#############################################
+
+record (ao, "$(P):$(DEV)-Freq:cSetV") {
+   field (DESC, "Frequency")
+   field (EGU, "MHz")
+   field (LINR, LINEAR)
+   field (ASLO, "1e-6")
+   field (DTYP, "stream")
+   field (LOPR, "0.1")
+   field (HOPR, "12.75e3")
+   field (PREC, "9")
+   field (OUT, "@smb100a.proto set_freq $(PORT)")
+}
+
+record (ao, "$(P):$(DEV)-Pwr:cSetV") {
+   field (DESC, "Output power")
+   field (EGU, "dBm")
+   field (DTYP, "stream")
+   field (LOPR, "-30")
+   field (HOPR, "27.0")
+   field (PREC, "2")
+   field (OUT, "@smb100a.proto set_out_pwr $(PORT)")
+}
+
+record (bo, "$(P):$(DEV)-OUTP:cOn") {
+   field (DESC, "Output Enabled")
+   field (DTYP, "stream")
+   field (OUT, "@smb100a.proto set_outp $(PORT)")
+   field (ZNAM, "Off")
+   field (ONAM, "On")
+   field (ZSV, "MAJOR")
+}
+
+record (bo, "$(P):$(DEV):cmdRem") {
+   field (DESC, "Set Remote operation")
+   field (DTYP, "stream")
+   field (OUT, "@smb100a.proto goto_remote $(PORT)")
+   field (UDFS, "NO_ALARM")
+}
+
+record (bo, "$(P):$(DEV):cmdLocal") {
+   field (DESC, "Set Local operation")
+   field (DTYP, "stream")
+   field (OUT, "@smb100a.proto goto_local $(PORT)")
+   field (UDFS, "NO_ALARM")
+}
+record (bo, "$(P):$(DEV):cmdLocLockOut") {
+   field (DESC, "Disable Local button")
+   field (DTYP, "stream")
+   field (OUT, "@smb100a.proto local_lockout $(PORT)")
+   field (UDFS, "NO_ALARM")
 }

@@ -34,7 +34,7 @@ widget.getPropertyValue("macros").add("URL", PVUtil.getString(pvs[0]))
     <class>COMMENT</class>
     <text>Output:</text>
     <x>30</x>
-    <y>90</y>
+    <y>95</y>
     <width>140</width>
     <font>
       <font name="Comment" family="Source Sans Pro" style="ITALIC" size="16.0">
@@ -46,7 +46,7 @@ widget.getPropertyValue("macros").add("URL", PVUtil.getString(pvs[0]))
     <class>COMMENT</class>
     <text>Frequency:</text>
     <x>30</x>
-    <y>120</y>
+    <y>130</y>
     <width>140</width>
     <font>
       <font name="Comment" family="Source Sans Pro" style="ITALIC" size="16.0">
@@ -58,7 +58,7 @@ widget.getPropertyValue("macros").add("URL", PVUtil.getString(pvs[0]))
     <class>COMMENT</class>
     <text>Output Power:</text>
     <x>30</x>
-    <y>150</y>
+    <y>160</y>
     <width>140</width>
     <font>
       <font name="Comment" family="Source Sans Pro" style="ITALIC" size="16.0">
@@ -68,23 +68,24 @@ widget.getPropertyValue("macros").add("URL", PVUtil.getString(pvs[0]))
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_1</name>
     <pv_name>$(P):$(DEV)-Freq:sRdV</pv_name>
-    <x>150</x>
-    <y>120</y>
-    <width>120</width>
+    <x>270</x>
+    <y>130</y>
+    <width>140</width>
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_2</name>
     <pv_name>$(P):$(DEV)-Pwr:sRdV</pv_name>
-    <x>150</x>
-    <y>150</y>
-    <width>120</width>
+    <x>270</x>
+    <y>160</y>
+    <width>140</width>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED</name>
     <pv_name>$(P):$(DEV)-OUTP:sOn</pv_name>
-    <x>150</x>
+    <x>280</x>
     <y>90</y>
     <width>120</width>
+    <height>30</height>
     <square>true</square>
     <labels_from_pv>true</labels_from_pv>
   </widget>
@@ -110,17 +111,17 @@ widget.getPropertyValue("macros").add("URL", PVUtil.getString(pvs[0]))
   <widget type="textentry" version="3.0.0">
     <name>Text Entry</name>
     <pv_name>$(P):$(DEV)-Freq:cSetV</pv_name>
-    <x>280</x>
-    <y>120</y>
-    <width>70</width>
+    <x>150</x>
+    <y>130</y>
+    <width>110</width>
     <show_units>false</show_units>
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Entry_1</name>
     <pv_name>$(P):$(DEV)-Pwr:cSetV</pv_name>
-    <x>280</x>
-    <y>150</y>
-    <width>70</width>
+    <x>150</x>
+    <y>160</y>
+    <width>110</width>
     <show_units>false</show_units>
   </widget>
   <widget type="textupdate" version="2.0.0">
@@ -130,6 +131,7 @@ widget.getPropertyValue("macros").add("URL", PVUtil.getString(pvs[0]))
     <y>10</y>
     <width>120</width>
     <format>6</format>
+    <horizontal_alignment>1</horizontal_alignment>
   </widget>
   <widget type="action_button" version="3.0.0">
     <name>Action Button_1</name>
@@ -146,5 +148,57 @@ widget.getPropertyValue("macros").add("URL", PVUtil.getString(pvs[0]))
     <width>210</width>
     <tooltip>Gives full controll over the instrument.
 Password protected.</tooltip>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button</name>
+    <pv_name>$(P):$(DEV)-OUTP:cOn</pv_name>
+    <x>150</x>
+    <y>90</y>
+    <labels_from_pv>true</labels_from_pv>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name).PROC</pv_name>
+        <value>0</value>
+        <description>Enable Local Operation</description>
+      </action>
+    </actions>
+    <pv_name>$(P):$(DEV):cmdLocal</pv_name>
+    <x>550</x>
+    <y>90</y>
+    <width>210</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name).PROC</pv_name>
+        <value>0</value>
+        <description>Disable Local Operation</description>
+      </action>
+    </actions>
+    <pv_name>$(P):$(DEV):cmdRem</pv_name>
+    <x>550</x>
+    <y>130</y>
+    <width>210</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_3</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name).PROC</pv_name>
+        <value>0</value>
+        <description>Disable Transition to Local</description>
+      </action>
+    </actions>
+    <pv_name>$(P):$(DEV):cmdLocLockOut</pv_name>
+    <x>550</x>
+    <y>170</y>
+    <width>210</width>
+    <tooltip>$(actions)</tooltip>
   </widget>
 </display>

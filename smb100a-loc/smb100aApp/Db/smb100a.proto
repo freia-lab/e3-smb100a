@@ -3,7 +3,7 @@ Terminator = LF;
    
 get_id {
    out "*idn?";
-   in "%s";
+   in "%#s";
 }
 
 get_ipaddr {
@@ -24,4 +24,38 @@ get_outp {
 get_out_pwr {
    out "pow?";
    in "%f";
+}
+
+set_freq {
+   out "freq %f hz";
+   @init { get_freq; }
+ }
+
+set_out_pwr {
+   out "pow %f";
+   @init { get_out_pwr; }
+}
+
+set_outp {
+   out "outp %d";
+   @init { get_outp; }
+}
+
+#
+# LAN Interface Messages (do not change the instrument settings)
+#
+goto_local {
+   out "&nren;&gtl";
+}
+goto_remote {
+   out "&gtr";
+}
+not_remote_enbl {
+   out "&nren";
+}
+dev_clear {
+   out "&dcl";
+}
+local_lockout {
+   out "&llo";
 }
