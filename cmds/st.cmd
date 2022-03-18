@@ -25,5 +25,3 @@ dbLoadRecords("smb100a.db", "PORT=PORT3,P=LLRF-2,DEV=LO")
 dbLoadRecords("smb100a.db", "PORT=PORT4,P=LLRF-1,DEV=LO")
 dbLoadRecords("smb100a.db", "PORT=PORT5,P=LLRF,DEV=ADCTrig")
 
-iocInit()
-
