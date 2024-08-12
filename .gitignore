@@ -10,6 +10,7 @@
 core.*
 *-loc/*.Makefile
 smb100a/*.Makefile
+smb100a/O.*
 cellMods/
 testMods*/
 *PVs.list
